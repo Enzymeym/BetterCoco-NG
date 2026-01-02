@@ -1,0 +1,161 @@
+<div class="betterco-settings-container">
+  <div class="betterco-flex-between">
+    <div class="betterco-title">启用主题</div>
+    <q-switch id="betterco-enableTheme"></q-switch>
+  </div>
+
+  <div class="betterco-theme-selector">
+    <div class="item" data-type="light">
+      <q-icon name="sun" size="1.2em"></q-icon>
+      <span>浅色</span>
+    </div>
+    <div class="item" data-type="dark">
+      <q-icon name="moon" size="1.2em"></q-icon>
+      <span>深色</span>
+    </div>
+    <div class="item" data-type="auto">
+      <q-icon name="auto" size="1.2em"></q-icon>
+      <span>自动</span>
+    </div>
+  </div>
+
+  <div class="betterco-color-selector">
+    <div class="item" data-color="#3080FF" style="background: #3080FF"></div>
+    <div class="item" data-color="#7C60FC" style="background: #7C60FC"></div>
+    <div class="item" data-color="#E68A51" style="background: #E68A51"></div>
+    <div class="item" data-color="#E0BA13" style="background: #E0BA13"></div>
+    <div class="item" data-color="#16C0CC" style="background: #16C0CC"></div>
+    <div class="item" data-color="#55BE83" style="background: #55BE83"></div>
+  </div>
+
+  <div class="betterco-other-list">
+    <div class="item betterco-flex-between">
+      <span>运行界面控制栏</span>
+      <q-switch id="betterco-showControlBar"></q-switch>
+    </div>
+    <div class="item betterco-flex-between">
+      <span>隐藏舞台</span>
+      <q-switch id="betterco-hideStage"></q-switch>
+    </div>
+    <div class="item betterco-flex-between">
+      <span>隐藏标尺</span>
+      <q-switch id="betterco-hideRuler"></q-switch>
+    </div>
+    <div class="item betterco-flex-between">
+      <span>一键绕审核</span>
+      <q-switch id="betterco-bypassJustClick"></q-switch>
+    </div>
+  </div>
+</div>
+
+<script>
+  /**
+   * 初始化外观设置面板
+   * @param {Object} options - 配置选项
+   * @param {Function} options.onThemeChange - 主题类型变化回调
+   * @param {Function} options.onColorChange - 主题颜色变化回调
+   * @param {Function} options.onEnableChange - 启用主题开关变化回调
+   * @param {Function} options.onControlBarChange - 控制栏开关变化回调
+   * @param {Function} options.onHideStageChange - 隐藏舞台开关变化回调
+   * @param {Function} options.onHideRulerChange - 隐藏标尺开关变化回调
+   * @param {Function} options.onBypassChange - 绕审核开关变化回调
+   * @param {Function} options.onUpdateUI - 更新UI状态回调
+   */
+  function initAppearanceSettings(options) {
+    const container = document.querySelector('.betterco-settings-container');
+    if (!container) return;
+
+    const themeItems = container.querySelectorAll('.betterco-theme-selector .item');
+    const colorItems = container.querySelectorAll('.betterco-color-selector .item');
+    const enableSwitch = container.querySelector('#betterco-enableTheme');
+    const barSwitch = container.querySelector('#betterco-showControlBar');
+    const stageSwitch = container.querySelector('#betterco-hideStage');
+    const rulerSwitch = container.querySelector('#betterco-hideRuler');
+    const bypassSwitch = container.querySelector('#betterco-bypassJustClick');
+
+    themeItems.forEach(item => {
+      item.addEventListener('click', async () => {
+        const type = item.dataset.type;
+        if (options.onThemeChange) await options.onThemeChange(type);
+      });
+    });
+
+    colorItems.forEach(item => {
+      item.addEventListener('click', async () => {
+        const color = item.dataset.color;
+        if (options.onColorChange) await options.onColorChange(color);
+      });
+    });
+
+    if (enableSwitch) {
+      enableSwitch.addEventListener('change', async function() {
+        if (options.onEnableChange) await options.onEnableChange(this.checked);
+      });
+    }
+
+    if (barSwitch) {
+      barSwitch.addEventListener('change', async function() {
+        if (options.onControlBarChange) await options.onControlBarChange(this.checked);
+      });
+    }
+
+    if (stageSwitch) {
+      stageSwitch.addEventListener('change', async function() {
+        if (options.onHideStageChange) await options.onHideStageChange(this.checked);
+      });
+    }
+
+    if (rulerSwitch) {
+      rulerSwitch.addEventListener('change', async function() {
+        if (options.onHideRulerChange) await options.onHideRulerChange(this.checked);
+      });
+    }
+
+    if (bypassSwitch) {
+      bypassSwitch.addEventListener('change', async function() {
+        if (options.onBypassChange) await options.onBypassChange(this.checked);
+      });
+    }
+
+    if (options.onUpdateUI) {
+      options.onUpdateUI();
+    }
+  }
+
+  /**
+   * 更新设置面板的UI状态
+   * @param {Object} settings - 设置数据
+   * @param {string} settings.themeType - 当前主题类型
+   * @param {string} settings.themeColor - 当前主题颜色
+   * @param {boolean} settings.openTheme - 是否启用主题
+   * @param {boolean} settings.showControlBar - 是否显示控制栏
+   * @param {boolean} settings.hideStage - 是否隐藏舞台
+   * @param {boolean} settings.hideRuler - 是否隐藏标尺
+   * @param {boolean} settings.bypassJustClick - 是否启用绕审核
+   */
+  function updateSettingsUI(settings) {
+    if (!settings) return;
+
+    const themeItems = document.querySelectorAll('.betterco-theme-selector .item');
+    const colorItems = document.querySelectorAll('.betterco-color-selector .item');
+    const enableSwitch = document.querySelector('#betterco-enableTheme');
+    const barSwitch = document.querySelector('#betterco-showControlBar');
+    const stageSwitch = document.querySelector('#betterco-hideStage');
+    const rulerSwitch = document.querySelector('#betterco-hideRuler');
+    const bypassSwitch = document.querySelector('#betterco-bypassJustClick');
+
+    themeItems.forEach(item => {
+      item.classList.toggle('active', item.dataset.type === settings.themeType);
+    });
+
+    colorItems.forEach(item => {
+      item.classList.toggle('active', item.dataset.color === settings.themeColor);
+    });
+
+    if (enableSwitch) enableSwitch.checked = settings.openTheme;
+    if (barSwitch) barSwitch.checked = settings.showControlBar;
+    if (stageSwitch) stageSwitch.checked = settings.hideStage;
+    if (rulerSwitch) rulerSwitch.checked = settings.hideRuler;
+    if (bypassSwitch) bypassSwitch.checked = settings.bypassJustClick;
+  }
+</script>

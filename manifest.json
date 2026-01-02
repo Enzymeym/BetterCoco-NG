@@ -1,0 +1,61 @@
+{
+    "manifest_version": 3,
+    "name": "Better CoCo",
+    "version": "1.1.0",
+    "description": "更好的 CoCo 编辑器！",
+    // 扩展权限
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "background",
+        "webNavigation"
+    ],
+    // 扩展图标
+    "icons": {
+        "16": "assets/icon16.png",
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    },
+    // 扩展的弹窗页面
+    "action": {
+        "default_icon": {
+            "16": "assets/icon16.png",
+            "48": "assets/icon48.png",
+            "128": "assets/icon128.png"
+        }
+    },
+    // 扩展的后台脚本
+    // "background": {
+    //     "service_worker": "background.js"
+    // },
+    // 向指定页面注入内容脚本
+    "content_scripts": [
+        {
+            "matches": ["https://coco.codemao.cn/*", "https://cloud-space.codemao.cn/*", "https://next.ccwidget.top/*"],
+            // "css": ["theme/theme.css"],
+            "js": ["theme/content.js"]
+        }
+    ],
+    // 内容脚本可访问的资源
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "theme/theme.css",
+                "theme/cloud.css",
+                "theme/custom-dialog.js",
+                "theme/widget-remover-core.js",
+                "theme/settings-modal.html",
+                "theme/settings-modal.css",
+                "theme/bypass.js",
+                "控件移除器.js",
+                "widget/widget.css",
+                "widget/index.js",
+                "widget/q-icon.js",
+                "widget/q-switch.js",
+                "widget/q-tabs.js"
+            ],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}

@@ -1,0 +1,293 @@
+.betterco-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .45);
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 9998;
+}
+
+.betterco-mask.show {
+  opacity: 1;
+}
+
+.betterco-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(.9);
+  opacity: 0;
+  background: var(--q-popup);
+  color: var(--q-text-1);
+  border-radius: 12px;
+  box-shadow: var(--q-shadow);
+  display: inline-block;
+  width: auto;
+  width: 800px;
+  height: 600px;
+  overflow: hidden;
+  z-index: 9999;
+  border: 1px solid var(--q-border);
+  transition: transform .2s ease, opacity .2s ease;
+  will-change: transform, opacity;
+  box-sizing: border-box;
+}
+
+.betterco-modal.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.betterco-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--q-border);
+  font-weight: 600;
+  color: var(--q-text-1);
+  overflow: visible;
+}
+
+.betterco-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.betterco-title {
+  font-weight: 600;
+}
+
+.betterco-modal-body {
+  padding: 16px;
+  color: var(--q-text-2);
+  overflow: auto;
+}
+
+.betterco-close {
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--q-text-3);
+  padding: 0 6px;
+  border-radius: 4px;
+  margin-left: 12px;
+}
+
+.betterco-close:hover {
+  background: var(--q-hover);
+  color: var(--q-text-1);
+}
+
+.betterco-settings-content {
+  margin-top: 10px;
+}
+
+.betterco-flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.betterco-theme-selector {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  padding: 4px 5px;
+  margin-top: 16px;
+  background: var(--q-bg-2);
+  border-radius: 50px;
+}
+
+.betterco-theme-selector .item {
+  flex: 1;
+  height: 100%;
+  border-radius: 50px;
+  color: var(--q-text-3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.betterco-theme-selector .item.active {
+  background: var(--q-bg);
+  color: var(--q-text-1);
+}
+
+.betterco-color-selector {
+  padding: 0 5px;
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.betterco-color-selector .item {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px #00000010, 0 0 0 2.5px var(--q-bg), 0 0 0 4.5px var(--q-bg-2);
+}
+
+.betterco-color-selector .item.active {
+  box-shadow: inset 0 0 0 2px #00000010, 0 0 0 2.5px var(--q-bg), 0 0 0 4.5px var(--q-theme);
+}
+
+.betterco-other-list {
+  padding: 12px 0 0 2px;
+  margin-top: 16px;
+  border-top: 1px solid var(--q-border);
+}
+
+.betterco-other-list .item {
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--q-border);
+}
+
+.betterco-hide-stage .PreviewArea_stage__38aST {
+  display: none !important;
+}
+
+.betterco-hide-ruler [class*="ruler"],
+.betterco-hide-ruler [class*="Ruler"] {
+  display: none !important;
+}
+
+.betterco-modal q-tabs {
+  display: inline-flex;
+  align-items: center;
+}
+
+.betterco-modal q-tabs .q-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 3px;
+  background: var(--q-bg-2);
+  border-radius: 50px;
+}
+
+.betterco-modal q-tabs .q-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 14px;
+  color: var(--q-text-2);
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.15s ease;
+}
+
+.betterco-modal q-tabs .q-tab-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.betterco-modal q-tabs .q-tab-label {
+  font-size: 13px;
+}
+
+.betterco-modal q-tabs .q-tab::after {
+  display: none;
+}
+
+.betterco-modal q-tabs .q-tab:hover {
+  color: var(--q-text-1);
+}
+
+.betterco-modal q-tabs .q-tab.q-active {
+  background: var(--q-bg);
+  color: var(--q-text-1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.betterco-modal q-tabs .q-tab.q-active .q-tab-label {
+  color: inherit;
+}
+
+.betterco-modal q-tabs .q-tab.q-active q-icon {
+  color: inherit;
+}
+
+.betterco-modal q-tabs .q-tab-arrow {
+  margin-left: 4px;
+  color: var(--q-text-3);
+}
+
+.betterco-modal q-tabs .q-tab.q-active .q-tab-arrow {
+  color: inherit;
+}
+
+.betterco-modal q-switch {
+  --switch-w: 38px;
+  --switch-h: 22px;
+  display: inline-block;
+  position: relative;
+  width: var(--switch-w);
+  height: var(--switch-h);
+  user-select: none;
+}
+
+.betterco-modal q-switch input {
+  display: none;
+}
+
+.betterco-modal q-switch .track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--switch-w);
+  height: var(--switch-h);
+  background: var(--q-bg-3);
+  border-radius: 50px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.betterco-modal q-switch .track .thumb {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  width: var(--switch-h);
+  height: var(--switch-h);
+  border-radius: 50px;
+  transition: all 0.15s;
+}
+
+.betterco-modal q-switch .track .thumb::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14.5px;
+  height: 14.5px;
+  background: var(--q-bg);
+  border-radius: 50%;
+}
+
+.betterco-modal q-switch input:checked + .track {
+  background: var(--q-theme);
+}
+
+.betterco-modal q-switch input:checked + .track .thumb {
+  left: calc(100% - var(--switch-h));
+}
+
+.betterco-modal q-switch .q-switch-label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+}

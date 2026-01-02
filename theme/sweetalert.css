@@ -1,0 +1,226 @@
+/* SweetAlert 美化样式 - COCO原生风格 */
+
+/* 遮罩层 */
+.swal-overlay {
+    background-color: rgba(0, 0, 0, 0.25) !important;
+    backdrop-filter: blur(2px);
+}
+
+/* 弹窗容器 */
+.swal-modal {
+    background: var(--q-popup) !important;
+    border-radius: 14px !important;
+    box-shadow: var(--q-shadow) !important;
+    border: 1px solid var(--q-border) !important;
+    padding: 0 !important;
+    width: 478px !important;
+    max-width: calc(100vw - 40px) !important;
+    font-family: "HarmonyOS Sans SC", "Microsoft YaHei", sans-serif !important;
+}
+
+/* 标题 */
+.swal-title {
+    color: var(--q-text-1) !important;
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    padding: 20px 24px 16px 24px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid var(--q-border) !important;
+    background: var(--q-bg-3) !important;
+    border-radius: 14px 14px 0 0 !important;
+}
+
+/* 文本内容 */
+.swal-text {
+    color: var(--q-text-2) !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    padding: 20px 24px !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+/* 图标容器 */
+.swal-icon {
+    margin: 24px auto 16px auto !important;
+}
+
+/* 内容区域 */
+.swal-content {
+    padding: 0 24px 20px 24px !important;
+    margin: 0 !important;
+}
+
+.swal-content__input,
+.swal-content__textarea {
+    background-color: var(--q-input) !important;
+    border: 1px solid var(--q-border) !important;
+    border-radius: 6px !important;
+    color: var(--q-text-1) !important;
+    padding: 10px 12px !important;
+    transition: all 0.15s !important;
+}
+
+.swal-content__input:hover,
+.swal-content__textarea:hover {
+    border-color: var(--q-theme-3) !important;
+}
+
+.swal-content__input:focus,
+.swal-content__textarea:focus {
+    outline: none !important;
+    border-color: var(--q-theme) !important;
+    background-color: var(--q-input) !important;
+}
+
+/* 页脚 */
+.swal-footer {
+    padding: 16px 24px 20px 24px !important;
+    margin: 0 !important;
+    border-top: 1px solid var(--q-border) !important;
+    background: var(--q-bg-3) !important;
+    border-radius: 0 0 14px 14px !important;
+    text-align: right !important;
+}
+
+/* 按钮容器 */
+.swal-button-container {
+    margin: 0 0 0 8px !important;
+    display: inline-block !important;
+}
+
+.swal-button-container:first-child {
+    margin-left: 0 !important;
+}
+
+/* 按钮基础样式 */
+.swal-button {
+    background-color: var(--q-theme-5) !important;
+    color: var(--q-theme) !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    padding: 8px 20px !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.15s !important;
+    min-width: 80px !important;
+    height: 34px !important;
+    line-height: 18px !important;
+}
+
+.swal-button:not([disabled]):hover {
+    background-color: var(--q-theme-4) !important;
+}
+
+.swal-button:not([disabled]):active {
+    background-color: var(--q-theme-5) !important;
+}
+
+.swal-button:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--q-theme-3) !important;
+}
+
+.swal-button[disabled] {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+}
+
+/* 确认按钮 */
+.swal-button--confirm {
+    background-color: var(--q-theme) !important;
+    color: #FFFFFF !important;
+}
+
+.swal-button--confirm:not([disabled]):hover {
+    background-color: var(--q-theme-2) !important;
+    opacity: 0.9 !important;
+}
+
+.swal-button--confirm:not([disabled]):active {
+    background-color: var(--q-theme) !important;
+    opacity: 1 !important;
+}
+
+/* 取消按钮 */
+.swal-button--cancel {
+    background-color: var(--q-input) !important;
+    color: var(--q-text-2) !important;
+}
+
+.swal-button--cancel:not([disabled]):hover {
+    background-color: var(--q-hover) !important;
+    color: var(--q-text-1) !important;
+}
+
+.swal-button--cancel:not([disabled]):active {
+    background-color: var(--q-input) !important;
+}
+
+/* 危险按钮 */
+.swal-button--danger {
+    background-color: #f24e4e !important;
+    color: #FFFFFF !important;
+}
+
+.swal-button--danger:not([disabled]):hover {
+    background-color: #e63939 !important;
+}
+
+.swal-button--danger:not([disabled]):active {
+    background-color: #f24e4e !important;
+}
+
+/* 加载状态 */
+.swal-button--loading {
+    color: transparent !important;
+    position: relative !important;
+}
+
+.swal-button__loader {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.swal-button__loader div {
+    background-color: currentColor !important;
+    opacity: 0.4 !important;
+}
+
+/* 图标样式 */
+.swal-icon--error {
+    border-color: #f24e4e !important;
+}
+
+.swal-icon--warning {
+    border-color: #f8bb86 !important;
+}
+
+.swal-icon--success {
+    border-color: #a5dc86 !important;
+}
+
+.swal-icon--info {
+    border-color: var(--q-theme) !important;
+}
+
+/* 响应式 */
+@media (max-width: 500px) {
+    .swal-modal {
+        width: calc(100% - 20px) !important;
+        margin: 10px !important;
+    }
+    
+    .swal-title,
+    .swal-text,
+    .swal-content,
+    .swal-footer {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
+
